@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 sp1 (http://www.altova.com) by Gordeeva Anastasia (ZAO Raiffeisenbank) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.raiffeisen.ru/esb/srv/RatesPubl/v4" targetNamespace="http://www.raiffeisen.ru/esb/srv/RatesPubl/v4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:complexType name="RateVolume">
+        <xs:sequence>
+            <xs:element name="Code" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор (код) объема сделки, для которого действует ставка</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Currency" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор (код) валюты, в которой выражен допустимый для ставки объем сделки. Всегда EUR</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="From" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Значение объема сделки, начиная с которого действует ставка (включительно)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="To" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Значение объема сделки, до которого действует ставка (не включая границу). В случае если поле не задано, считается, что ставка действует для всех объемов сделки, больших или равных значению From</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RateValue">
+        <xs:sequence>
+            <xs:element name="Ask" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Значение предложения</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Bid" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Значение спроса</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Last" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Цена последней сделки</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Multiplier" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Множитель, на который на стороне системы-получателя должны быть домножены Ask, Bid и Last для получения эффективных значений</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Rate">
+        <xs:sequence>
+            <xs:element name="Code" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор (код) ставки</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Назначение ставки (опциональное поле)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Currency" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор (код) базовой валюты</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CounterCurrency" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор (код) контр-валюты (заполняется только для валютных ставок)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Tenor" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор (код) тенора (применяется только для процентных ставок и PenaltyCurves)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CounterTenor" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор (код) контр-тенора для фильтрации возвращаемых значений ставок (применяется только для ставок PenaltyCurves)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Volume" type="tns:RateVolume" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Объём сделки</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Value" type="tns:RateValue" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Значение курса / ставки</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RateList">
+        <xs:sequence>
+            <xs:element name="Rate" type="tns:Rate" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Валютный курс / процентная ставка</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RateGroup">
+        <xs:sequence>
+            <xs:element name="Code" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор (код) группы ставок</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Назначение группы ставок (опциональное поле)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="EntryDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Дата создания/последнего обновления данного значения группы ставок</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ValueDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Дата начала действия данного значения группы ставок</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Author" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Автор последнего изменения данного значения группы ставок</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="RateList" type="tns:RateList" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Список валютных курсов / процентных ставок</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="RateGroup" type="tns:RateGroup"/>
+</xs:schema>
