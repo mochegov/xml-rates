@@ -34,6 +34,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SrvAccountPublEvent }
+     * 
+     */
+    public SrvAccountPublEvent createSrvAccountPublEvent() {
+        return new SrvAccountPublEvent();
+    }
+
+    /**
      * Create an instance of {@link RateGroup }
      * 
      */
@@ -71,6 +79,14 @@ public class ObjectFactory {
      */
     public RateList createRateList() {
         return new RateList();
+    }
+
+    /**
+     * Create an instance of {@link SrvAccountPublEvent.TAccountNumber }
+     * 
+     */
+    public SrvAccountPublEvent.TAccountNumber createSrvAccountPublEventTAccountNumber() {
+        return new SrvAccountPublEvent.TAccountNumber();
     }
 
     /**

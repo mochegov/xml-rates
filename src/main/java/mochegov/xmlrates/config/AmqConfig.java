@@ -23,7 +23,7 @@ public class AmqConfig {
 
     @Bean
     @Primary
-    public ConnectionFactory ratesOutJmsConnectionFactory(AmqProperties properties) {
+    public ConnectionFactory jmsConnectionFactory(AmqProperties properties) {
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(
             properties.getMq().getBrokerUrl(),
             properties.getMq().getUser(),
@@ -35,8 +35,14 @@ public class AmqConfig {
     }
 
     @Bean
-    @Primary
-    public JmsTemplate jmsTemplate(@Qualifier("ratesOutJmsConnectionFactory") ConnectionFactory connectionFactory) {
+    public JmsTemplate jmsTemplateAnyCast(@Qualifier("jmsConnectionFactory") ConnectionFactory connectionFactory) {
+        var jmsTemplate = new JmsTemplate();
+        jmsTemplate.setConnectionFactory(connectionFactory);
+        return jmsTemplate;
+    }
+
+    @Bean
+    public JmsTemplate jmsTemplateMultiCast(@Qualifier("jmsConnectionFactory") ConnectionFactory connectionFactory) {
         var jmsTemplate = new JmsTemplate();
         jmsTemplate.setConnectionFactory(connectionFactory);
         jmsTemplate.setPubSubDomain(Boolean.TRUE);
@@ -44,8 +50,8 @@ public class AmqConfig {
     }
 
     @Bean
-    public JmsListenerContainerFactory<?> ratesOutJmsListenerContainerFactory(
-        @Qualifier("ratesOutJmsConnectionFactory") ConnectionFactory connectionFactory,
+    public JmsListenerContainerFactory<?> jmsListenerContainerFactory(
+        @Qualifier("jmsConnectionFactory") ConnectionFactory connectionFactory,
         DefaultJmsListenerContainerFactoryConfigurer configurer) {
 
         var containerFactory = new DefaultJmsListenerContainerFactory();

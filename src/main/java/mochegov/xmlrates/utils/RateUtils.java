@@ -32,9 +32,9 @@ public class RateUtils {
             rateValue.setMultiplier(BigDecimal.ONE);
 
             Rate rate = new Rate();
-            rate.setCode("CBR_%s_%s".formatted(dto.getCurrency(), Currency.RUB));
+            rate.setCode("CBR_%s_%s".formatted(dto.getCurrency(), Currency.RUR));
             rate.setCurrency(dto.getCurrency().toString());
-            rate.setCounterCurrency(Currency.RUB.toString());
+            rate.setCounterCurrency(Currency.RUR.toString());
             rate.setVolume(rateVolume);
             rate.setValue(rateValue);
 

@@ -11,7 +11,7 @@ import org.springframework.validation.annotation.Validated;
 @Data
 @Configuration
 @NoArgsConstructor
-@ConfigurationProperties(prefix = "rate")
+@ConfigurationProperties(prefix = "artemis")
 public class AmqProperties {
     private ActiveMQProperties mq;
     private String queue;

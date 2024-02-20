@@ -1,10 +1,8 @@
 package mochegov.xmlrates.producer;
 
-import static ru.raiffeisen.gl.common.clients.GlHttpClient.COMMON_OBJECT_MAPPER;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +10,28 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class JmsService {
-    private final JmsTemplate jmsTemplate;
+    private final @Qualifier("jmsTemplateAnyCast") JmsTemplate jmsTemplateAnyCast;
+    private final @Qualifier("jmsTemplateMultiCast") JmsTemplate jmsTemplateMultiCast;
 
-    public <T> void sendAsyncMessage(String queue, T message) {
-        log.info("Sending a message to queue {}. Message: {}", queue, message);
+    public void sendAnyCastMessage(String queue, String message) {
+        log.info("Sending an AnyCast message to queue {}. Message: {}", queue, message);
 
         try {
-            jmsTemplate.convertAndSend(queue, COMMON_OBJECT_MAPPER.writeValueAsString(message));
+            jmsTemplateAnyCast.convertAndSend(queue, message);
+            log.info("Message: %s".formatted(message));
+
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    public void sendMultiCastMessage(String queue, String message) {
+        log.info("Sending an MultiCast message to queue {}. Message: {}", queue, message);
+
+        try {
+            jmsTemplateMultiCast.convertAndSend(queue, message);
+            log.info("Message: %s".formatted(message));
+
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }

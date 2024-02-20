@@ -1,11 +1,16 @@
 server:
   port: 8030
 
-rate:
+artemis:
   mq:
     broker-url: tcp://localhost:61616
     user: username
     password: password
 
+rate:
   queue: CNR.GLOBE.RATESPUBL.V4.OUT
   subscription: MOCHEGOV
+
+account:
+  queue: INT.NI.ACCNT.PUB
+

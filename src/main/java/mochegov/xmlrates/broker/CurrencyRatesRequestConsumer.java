@@ -8,6 +8,7 @@ import jakarta.jms.TextMessage;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import mochegov.xmlrates.dto.RateGroupDto;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
@@ -18,9 +19,9 @@ import rates.RateGroup;
 @AllArgsConstructor
 public class CurrencyRatesRequestConsumer {
     @JmsListener(destination = "${rate.queue}", subscription = "${rate.subscription}",
-        containerFactory = "ratesOutJmsListenerContainerFactory")
+        containerFactory = "jmsListenerContainerFactory")
     public void receiveMessage(TextMessage message, @Payload String messageBodyJson) throws JsonProcessingException, JMSException {
-        var rateGroup = COMMON_OBJECT_MAPPER.readValue(messageBodyJson, RateGroup.class);
+        var rateGroup = COMMON_OBJECT_MAPPER.readValue(messageBodyJson, RateGroupDto.class).getRateGroup();
         log.info("New rate group received. Message id {}, code: {}, entryDateTime {}, valueDateTime: {}",
             message.getJMSMessageID(),
             rateGroup.getCode(),

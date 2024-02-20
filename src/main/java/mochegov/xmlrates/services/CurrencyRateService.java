@@ -1,10 +1,13 @@
 package mochegov.xmlrates.services;
 
 import static mochegov.xmlrates.utils.RateUtils.currencyRateDtoToRateGroup;
+import static ru.raiffeisen.gl.common.clients.GlHttpClient.COMMON_OBJECT_MAPPER;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import mochegov.xmlrates.dto.CurrencyRateDto;
+import mochegov.xmlrates.dto.RateGroupDto;
 import mochegov.xmlrates.producer.JmsService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -22,13 +25,15 @@ public class CurrencyRateService {
         this.queue = queue;
     }
 
-    public void sendCurrencyRate(List<CurrencyRateDto> dtoList) {
+    public void sendCurrencyRate(List<CurrencyRateDto> dtoList) throws JsonProcessingException {
         if (dtoList.isEmpty()) {
             log.error("List of currency rates is empty");
             return;
         }
 
         RateGroup rateGroup = currencyRateDtoToRateGroup(dtoList);
-        jmsService.sendAsyncMessage(queue, rateGroup);
+        RateGroupDto dto = new RateGroupDto(rateGroup);
+        String messageString = COMMON_OBJECT_MAPPER.writeValueAsString(dto);
+        jmsService.sendMultiCastMessage(queue, messageString);
     }
 }
