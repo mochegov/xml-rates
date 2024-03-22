@@ -71,7 +71,7 @@ public class AccountService {
         event.setEventDateTime(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
         event.setAcsq(UUID.randomUUID().toString());
         event.setAcod(ACCOUNT_ACOD);
-        event.setBranch(branch.getCodeAccount());
+        event.setBranch(branch.getCodeRetail());
         event.setCustomerNumber("A1B2C3");
         event.setAccountType("R");
         event.setCurrency(currency.toString());
