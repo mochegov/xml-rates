@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import mochegov.xmlrates.dto.AnyAccountOperationDto;
 import mochegov.xmlrates.dto.CloseAccountDto;
 import mochegov.xmlrates.dto.CurrencyRateDto;
 import mochegov.xmlrates.dto.OpenAccountDto;
@@ -45,5 +46,11 @@ public class MainController {
     public ResponseEntity<String> openAccount(@RequestBody OpenAccountDto dto) {
         accountService.sendOpenAccountMessage(dto);
         return ResponseEntity.status(HttpStatus.OK).body("Message to open account successfully sent");
+    }
+
+    @PostMapping("account/operation")
+    public ResponseEntity<String> operationAccount(@RequestBody AnyAccountOperationDto dto) {
+        accountService.sendAnyAccountMessage(dto);
+        return ResponseEntity.status(HttpStatus.OK).body("Message to process account operation successfully sent");
     }
 }

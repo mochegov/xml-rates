@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
+import mochegov.xmlrates.dto.AnyAccountOperationDto;
 import mochegov.xmlrates.dto.CloseAccountDto;
 import mochegov.xmlrates.dto.OpenAccountDto;
 import mochegov.xmlrates.enums.Currency;
@@ -64,6 +65,10 @@ public class AccountService {
         event.setIntCalcSubtCr(dto.getIntCalcSubType());
         String xmlText = xmlConverter.serializeToXmlFormat(event);
         jmsService.sendMultiCastMessage(queue, xmlText);
+    }
+
+    public void sendAnyAccountMessage(AnyAccountOperationDto dto) {
+        jmsService.sendMultiCastMessage(queue, dto.getRawText());
     }
 
     private SrvAccountPublEvent buildCommonAccountEvent(String accountNumber, Currency currency, Branch branch) {
