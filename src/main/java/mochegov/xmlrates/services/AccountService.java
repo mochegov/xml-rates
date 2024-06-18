@@ -7,10 +7,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
-import mochegov.xmlrates.dto.AnyAccountOperationDto;
+import mochegov.xmlrates.dto.AnyOperationDto;
 import mochegov.xmlrates.dto.CloseAccountDto;
 import mochegov.xmlrates.dto.OpenAccountDto;
 import mochegov.xmlrates.enums.Currency;
+import mochegov.xmlrates.enums.MidasAccountEventType;
 import mochegov.xmlrates.producer.JmsService;
 import mochegov.xmlrates.utils.AccountEventXmlConverter;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,8 +27,6 @@ public class AccountService {
 
     private final String queue;
 
-    public static final String ACCOUNT_OPEN_EVENT = "Account_Open";
-    public static final String ACCOUNT_CLOSE_EVENT = "Account_Close";
     public static final String ACCOUNT_ACOD = "3775";
 
     public AccountService(AccountEventXmlConverter xmlConverter,
@@ -47,7 +46,7 @@ public class AccountService {
 
     public void sendCloseAccountMessage(CloseAccountDto dto) {
         SrvAccountPublEvent event = buildCommonAccountEvent(dto.getAccountNumber(), dto.getCurrency(), Branch.RBA);
-        event.setEvent(ACCOUNT_CLOSE_EVENT);
+        event.setEvent(MidasAccountEventType.MIDAS_ACCOUNT_CLOSE_EVENT.getName());
         event.setAcod(dto.getAcod());
         event.setOpenDate(buildXMLGregorianCalendar(2021, 1, 1));
         event.setCloseDate(convertLocalDateToXMLGregorianCalendar(dto.getCloseDate()));
@@ -57,7 +56,7 @@ public class AccountService {
 
     public void sendOpenAccountMessage(OpenAccountDto dto) {
         SrvAccountPublEvent event = buildCommonAccountEvent(dto.getAccountNumber(), dto.getCurrency(), dto.getBranch());
-        event.setEvent(ACCOUNT_OPEN_EVENT);
+        event.setEvent(dto.getEventType().getName());
         event.setOpenDate(convertLocalDateToXMLGregorianCalendar(dto.getOpenDate()));
         event.setInstitCode(dto.getInstitutionCode());
         event.setAcod(dto.getAcod());
@@ -67,7 +66,7 @@ public class AccountService {
         jmsService.sendMultiCastMessage(queue, xmlText);
     }
 
-    public void sendAnyAccountMessage(AnyAccountOperationDto dto) {
+    public void sendAnyAccountMessage(AnyOperationDto dto) {
         jmsService.sendMultiCastMessage(queue, dto.getRawText());
     }
 

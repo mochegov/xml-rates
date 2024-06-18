@@ -6,6 +6,7 @@ artemis:
     broker-url: tcp://localhost:61616
     user: username
     password: password
+  sendByteMessage: true
 
 rate:
   queue: CNR.GLOBE.RATESPUBL.V4.OUT
@@ -14,3 +15,8 @@ rate:
 account:
   queue: INT.NI.ACCNT.PUB
 
+ae:
+  queue:
+    prototype:
+      in: AE.PROTOTYPE.IN
+      out: AE.PROTOTYPE.OUT

@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AnyAccountOperationDto {
+public class AnyOperationDto {
     private String rawText;
 }

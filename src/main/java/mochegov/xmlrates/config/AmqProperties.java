@@ -15,4 +15,5 @@ import org.springframework.validation.annotation.Validated;
 public class AmqProperties {
     private ActiveMQProperties mq;
     private String queue;
+    private Boolean byteMessage;
 }

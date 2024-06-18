@@ -1,0 +1,614 @@
+{
+  "RateGroup": {
+    "Code": "CBR",
+    "EntryDateTime": "2024-06-14T17:33:03.578+03:00",
+    "ValueDateTime": "2024-06-15T00:00:00.000+03:00",
+    "Author": "CBR",
+    "RateList": {
+      "Rate": [
+        {
+          "Code": "CBR_AUD_RUB",
+          "Currency": "AUD",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "59.01500",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_JPY_RUB",
+          "Currency": "JPY",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "56.64680",
+            "Multiplier": "100.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_GBP_RUB",
+          "Currency": "GBP",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "113.71030",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_DKK_RUB",
+          "Currency": "DKK",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "12.87640",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_USD_RUB",
+          "Currency": "USD",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "89.06580",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_EUR_RUB",
+          "Currency": "EUR",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "95.15140",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_CAD_RUB",
+          "Currency": "CAD",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "64.79400",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_CNY_RUB",
+          "Currency": "CNY",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "12.16290",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_NOK_RUB",
+          "Currency": "NOK",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "84.02120",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_SGD_RUB",
+          "Currency": "SGD",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "65.88680",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_SEK_RUB",
+          "Currency": "SEK",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "85.59710",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_CHF_RUB",
+          "Currency": "CHF",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "99.82720",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_AMD_RUB",
+          "Currency": "AMD",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "22.92610",
+            "Multiplier": "100.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_AZN_RUB",
+          "Currency": "AZN",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "52.39160",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_BGN_RUB",
+          "Currency": "BGN",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "49.10890",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_BRL_RUB",
+          "Currency": "BRL",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "16.50250",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_CZK_RUB",
+          "Currency": "CZK",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "38.46670",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_HUF_RUB",
+          "Currency": "HUF",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "23.94760",
+            "Multiplier": "100.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_INR_RUB",
+          "Currency": "INR",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "10.66070",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_KGS_RUB",
+          "Currency": "KGS",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "10.13730",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_KRW_RUB",
+          "Currency": "KRW",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "64.57320",
+            "Multiplier": "1000.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_KZT_RUB",
+          "Currency": "KZT",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "19.73190",
+            "Multiplier": "100.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_MDL_RUB",
+          "Currency": "MDL",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "50.00920",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_PLN_RUB",
+          "Currency": "PLN",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "21.85130",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_RON_RUB",
+          "Currency": "RON",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "19.12270",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_TJS_RUB",
+          "Currency": "TJS",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "82.79880",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_TMT_RUB",
+          "Currency": "TMT",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "25.44740",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_TRY_RUB",
+          "Currency": "TRY",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "27.60840",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_UAH_RUB",
+          "Currency": "UAH",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "21.88840",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_UZS_RUB",
+          "Currency": "UZS",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "70.60420",
+            "Multiplier": "10000.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_XDR_RUB",
+          "Currency": "XDR",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "117.72360",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_ZAR_RUB",
+          "Currency": "ZAR",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "48.47170",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_BYN_RUB",
+          "Currency": "BYN",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "27.83650",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_HKD_RUB",
+          "Currency": "HKD",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "11.42310",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_EGP_RUB",
+          "Currency": "EGP",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "18.66850",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_QAR_RUB",
+          "Currency": "QAR",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "24.46860",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_GEL_RUB",
+          "Currency": "GEL",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "31.04100",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_RSD_RUB",
+          "Currency": "RSD",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "81.70180",
+            "Multiplier": "100.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_VND_RUB",
+          "Currency": "VND",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "36.72970",
+            "Multiplier": "10000.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_AED_RUB",
+          "Currency": "AED",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "24.25210",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_IDR_RUB",
+          "Currency": "IDR",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "54.68860",
+            "Multiplier": "10000.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_THB_RUB",
+          "Currency": "THB",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "24.23300",
+            "Multiplier": "10.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_NZD_RUB",
+          "Currency": "NZD",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "54.83340",
+            "Multiplier": "1.0000000000"
+          }
+        }
+      ]
+    }
+  }
+}

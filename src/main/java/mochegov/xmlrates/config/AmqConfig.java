@@ -1,5 +1,7 @@
 package mochegov.xmlrates.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.jms.ConnectionFactory;
 import jakarta.jms.Session;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +22,6 @@ import org.springframework.jms.listener.DefaultMessageListenerContainer;
 @Configuration
 @RequiredArgsConstructor
 public class AmqConfig {
-
     @Bean
     @Primary
     public ConnectionFactory jmsConnectionFactory(AmqProperties properties) {
@@ -50,7 +51,7 @@ public class AmqConfig {
     }
 
     @Bean
-    public JmsListenerContainerFactory<?> jmsListenerContainerFactory(
+    public JmsListenerContainerFactory<?> jmsListenerMultiCastContainerFactory(
         @Qualifier("jmsConnectionFactory") ConnectionFactory connectionFactory,
         DefaultJmsListenerContainerFactoryConfigurer configurer) {
 
@@ -66,5 +67,28 @@ public class AmqConfig {
         configurer.configure(containerFactory, connectionFactory);
 
         return containerFactory;
+    }
+
+    @Bean
+    public JmsListenerContainerFactory<?> jmsListenerAnyCastContainerFactory(
+        @Qualifier("jmsConnectionFactory") ConnectionFactory connectionFactory,
+        DefaultJmsListenerContainerFactoryConfigurer configurer) {
+
+        var containerFactory = new DefaultJmsListenerContainerFactory();
+        containerFactory.setSessionAcknowledgeMode(Session.SESSION_TRANSACTED);
+        containerFactory.setCacheLevel(DefaultMessageListenerContainer.CACHE_CONNECTION);
+        containerFactory.setErrorHandler(t -> log.error("Jms error handler received a new error with message {}", t.getMessage()));
+        containerFactory.setExceptionListener(e -> log.error("Jms exception listener received a new exception with message {}", e.getMessage()));
+
+        configurer.configure(containerFactory, connectionFactory);
+
+        return containerFactory;
+    }
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        return objectMapper;
     }
 }

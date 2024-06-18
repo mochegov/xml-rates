@@ -5,6 +5,8 @@ import static ru.raiffeisen.gl.common.clients.GlHttpClient.COMMON_OBJECT_MAPPER;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import mochegov.xmlrates.dto.CurrencyRateDto;
 import mochegov.xmlrates.dto.RateGroupDto;
@@ -34,6 +36,10 @@ public class CurrencyRateService {
         RateGroup rateGroup = currencyRateDtoToRateGroup(dtoList);
         RateGroupDto dto = new RateGroupDto(rateGroup);
         String messageString = COMMON_OBJECT_MAPPER.writeValueAsString(dto);
-        jmsService.sendMultiCastMessage(queue, messageString);
+        jmsService.sendAnyCastMessage(queue, messageString, null, null, Map.of());
+    }
+
+    public void sendCurrencyRate(String json) {
+        jmsService.sendAnyCastMessage(queue, json, null, null, Map.of());
     }
 }

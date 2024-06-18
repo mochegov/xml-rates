@@ -1,0 +1,40 @@
+{
+  "RateGroup": {
+    "Code": "CBR",
+    "EntryDateTime": "2024-06-14T17:33:03.578+03:00",
+    "ValueDateTime": "2024-06-15T00:00:00.000+03:00",
+    "Author": "CBR",
+    "RateList": {
+      "Rate": [
+        {
+          "Code": "CBR_USD_RUB",
+          "Currency": "USD",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "89.06580",
+            "Multiplier": "1.0000000000"
+          }
+        },
+        {
+          "Code": "CBR_EUR_RUB",
+          "Currency": "EUR",
+          "CounterCurrency": "RUB",
+          "Volume": {
+            "Code": "ANY",
+            "Currency": "EUR",
+            "From": "0"
+          },
+          "Value": {
+            "Last": "95.15140",
+            "Multiplier": "1.0000000000"
+          }
+        }
+      ]
+    }
+  }
+}

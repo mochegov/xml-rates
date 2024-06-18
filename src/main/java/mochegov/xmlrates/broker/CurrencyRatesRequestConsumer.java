@@ -19,7 +19,7 @@ import rates.RateGroup;
 @AllArgsConstructor
 public class CurrencyRatesRequestConsumer {
     @JmsListener(destination = "${rate.queue}", subscription = "${rate.subscription}",
-        containerFactory = "jmsListenerContainerFactory")
+        containerFactory = "jmsListenerMultiCastContainerFactory")
     public void receiveMessage(TextMessage message, @Payload String messageBodyJson) throws JsonProcessingException, JMSException {
         var rateGroup = COMMON_OBJECT_MAPPER.readValue(messageBodyJson, RateGroupDto.class).getRateGroup();
         log.info("New rate group received. Message id {}, code: {}, entryDateTime {}, valueDateTime: {}",
