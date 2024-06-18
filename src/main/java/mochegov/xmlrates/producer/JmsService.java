@@ -4,7 +4,6 @@ import jakarta.jms.BytesMessage;
 import jakarta.jms.JMSException;
 import jakarta.jms.Message;
 import java.util.Map;
-import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.artemis.api.core.RoutingType;
 import org.apache.activemq.artemis.api.core.SimpleString;
@@ -56,8 +55,6 @@ public class JmsService {
                 });
                 return jmsMessage;
             });
-            jmsTemplateAnyCast.convertAndSend(queue, message);
-            log.info("Message: %s".formatted(message));
 
         } catch (Exception e) {
             log.error(e.getMessage(), e);
